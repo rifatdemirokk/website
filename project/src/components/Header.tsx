@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import logo from '../../media/logofinal.png'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,19 +42,21 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
-    }`}>
+    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-25">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center mr-3">
-              <span className="text-white font-bold text-xl">U</span>
+            {/* Logo resmi */}
+            <Link to="/">
+              <img src={logo} alt="UpOne Logo" className="w-24 h-24 mr-3" />
             </Link>
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+
+            {/* Metin logo 
+            <Link to="/" className="text-2xl font-bold text-blue-700">
               UpOne
-            </Link>
+            </Link>*/}
           </div>
 
           {/* Desktop Navigation */}
@@ -92,7 +95,7 @@ const Header = () => {
               </select>
               <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
             </div>
-            <button 
+            <button
               onClick={() => scrollToSection('contact')}
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 transform hover:scale-105"
             >
@@ -145,7 +148,7 @@ const Header = () => {
                 <option value="en">EN</option>
                 <option value="tr">TR</option>
               </select>
-              <button 
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg font-medium"
               >
